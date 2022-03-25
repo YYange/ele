@@ -18,6 +18,7 @@ const state = {
   address: '',
   orderInfo: null,
   userInfo: null,
+  //订餐信息：餐具份数，备注等
   remarkInfo: {
     tableware: '',
     remark: ''

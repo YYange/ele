@@ -91,7 +91,7 @@ export default {
         return;
       }
 
-      // 存储数据
+      // 存储数据  为了区分添加地址和编辑地址
       if (this.title == "添加地址") {
         this.addAddress();
       } else {
@@ -112,6 +112,7 @@ export default {
           this.addressInfo
         )
         .then(res => {
+          //当没有Vuex里面没有信息的时候，则是第一次添加收获地址需要放到vuex里面
           if (!this.$store.getters.userInfo) {
             this.$store.dispatch("setUserInfo", this.addressInfo);
           }
@@ -121,7 +122,7 @@ export default {
     },
     editAddress() {
       this.$axios
-        .post(
+        .post( //用户ID，每个地址对应的id[当我们添加数据的时候为自动生成_id]
           `/api/user/edit_address/${localStorage.ele_login}/${
             this.addressInfo._id
           }`,

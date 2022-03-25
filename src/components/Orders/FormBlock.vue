@@ -37,7 +37,7 @@ export default {
       default: "text"
     },
     label: String,
-    value: String,
+    value: String, 
     placeholder: String,
     icon: String,
     textarea: String,
